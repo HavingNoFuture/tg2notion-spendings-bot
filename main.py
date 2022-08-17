@@ -6,7 +6,8 @@ bot = telebot.TeleBot(config.TELEGRAM_BOT_TOKEN)
 
 
 @bot.message_handler(content_types=["text"])
-def repeat_all_messages(message):
+def text_message_handler(message: telebot.types.Message) -> None:
+    """Обработчик текстового сообщения"""
     bot.send_message(message.chat.id, f'{message.text}, милашка!')
 
 
